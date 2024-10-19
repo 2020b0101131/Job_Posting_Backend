@@ -33,7 +33,7 @@ const sendJobEmails = async (req, res) => {
                 from: process.env.EMAIL_USER,
                 to: email,
                 subject: `New Job Posting: ${job.title}`,
-                text: `Hello, We have a new job opening for ${job.title}. Experience Level: ${job.experienceLevel===1?("Junior"):(job.experienceLevel===2?("Mid-Level"):("Senior"))}. Please visit our site for more information.`,
+                text: `Hello, We have a new job opening for ${job.title}. Experience Level: ${job.experienceLevel==1?("Junior"):(job.experienceLevel==2?("Mid-Level"):("Senior"))}. Please visit our site for more information.`,
             };
 
             transporter.sendMail(mailOptions, (error, info) => {
