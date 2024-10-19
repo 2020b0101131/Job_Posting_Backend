@@ -4,9 +4,9 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 
-// Email configuration
+
 const transporter = nodemailer.createTransport({
-    service: 'gmail', // You can use other email services too (e.g., SendGrid)
+    service: 'gmail',
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-// Send email to all candidates for a specific job
+
 const sendJobEmails = async (req, res) => {
     const jobId = req.params.id;
 
@@ -27,7 +27,7 @@ const sendJobEmails = async (req, res) => {
 
         const candidates = job.candidates.map(candidate => candidate.email);
 
-        // Send emails to each candidate
+     
         candidates.forEach((email) => {
             const mailOptions = {
                 from: process.env.EMAIL_USER,

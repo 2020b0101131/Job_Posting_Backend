@@ -1,12 +1,11 @@
 const Job = require('../models/jobModel');
 
-// Create a new job posting
 const createJob = async (req, res) => {
     const { title, description, experienceLevel, candidates, endDate } = req.body;
 
     try {
         const job = await Job.create({
-            companyId: req.user._id, // Get company ID from authenticated user
+            companyId: req.user._id, 
             title,
             description,
             experienceLevel,
@@ -19,7 +18,7 @@ const createJob = async (req, res) => {
     }
 };
 
-// Get all job postings for a specific company
+
 const getCompanyJobs = async (req, res) => {
     try {
         const jobs = await Job.find({ companyId: req.user._id });
@@ -29,7 +28,7 @@ const getCompanyJobs = async (req, res) => {
     }
 };
 
-// Add a candidate to a job posting
+
 const addCandidate = async (req, res) => {
     const { email } = req.body;
     const jobId = req.params.id;

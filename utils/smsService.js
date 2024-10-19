@@ -1,9 +1,9 @@
-const twilio = require('twilio'); // Import Twilio library
+const twilio = require('twilio'); 
 
-// Initialize Twilio client with account SID and auth token
+
 const client = new twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
-// Function to send SMS
+
 const sendVerificationSMS = async (phoneNo, code) => {
     try {
         await client.messages.create({
@@ -18,5 +18,5 @@ const sendVerificationSMS = async (phoneNo, code) => {
 };
 
 module.exports = {
-    sendVerificationSMS, // Export the function
+    sendVerificationSMS,
 };

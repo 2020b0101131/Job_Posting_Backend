@@ -36,14 +36,10 @@ const userSchema = new mongoose.Schema({
     verificationCode: { 
         type: Number,
     },
-    // Uncomment if you are planning to handle user passwords
-    // password: {
-    //     type: String,
-    //     required: true,
-    // },
+   
 });
 
-// Hash password before saving if you are managing passwords
+
 userSchema.pre('save', async function (next) {
     if (!this.isModified('password')) {
         return next();
@@ -53,7 +49,7 @@ userSchema.pre('save', async function (next) {
     this.password = await bcrypt.hash(this.password, salt);
 });
 
-// Compare password for login (if password management is included)
+
 userSchema.methods.matchPassword = async function (enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password);
 };

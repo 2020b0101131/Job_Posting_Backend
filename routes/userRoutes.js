@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.post('/register', registerUser);
 router.post('/login', authUser);
-router.post('/verify-email', verifyEmail); // Use POST to verify email with OTP 
+router.post('/verify-email', verifyEmail); 
 // router.post('/verify-mobile', verifyMobile); // Route for verifying mobile
 
 module.exports = router;
