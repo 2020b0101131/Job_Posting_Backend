@@ -21,3 +21,5 @@ Job title, Job description, Experience Level, Add candidate, End date
 Added functionality for companies to send job alerts or updates to multiple candidates via email.
 ### Logout:
 Provide a logout option to clear tokens or sessions.
+### Responsive
+The website is completely responsive for various screen layouts.
